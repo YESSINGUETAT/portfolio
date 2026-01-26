@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio GitHub - YESSIN GUETAT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .navbar {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1f1f1f;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        header {
+            margin-bottom: 80px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3em;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 14px 32px;
+            background: #3b82f6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 14px 32px;
+            background: transparent;
+            color: #e0e0e0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid #2f2f2f;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-container {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            border: 3px solid #1f1f1f;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            filter: blur(40px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+            padding: 40px;
+            background: #0f0f0f;
+            border-radius: 16px;
+            border: 1px solid #1f1f1f;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #3b82f6;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #808080;
+            font-size: 0.95em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: #0f0f0f;
+            border: 1px solid #1f1f1f;
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .project-desc {
+            color: #a0a0a0;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            padding: 6px 14px;
+            background: #1a1a1a;
+            border: 1px solid #2f2f2f;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #a0a0a0;
+            font-weight: 500;
+        }
+
+        .project-stars {
+            color: #fbbf24;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .collab-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon {
+            border: 2px dashed #2f2f2f;
+            background: transparent;
+        }
+
+        .coming-soon .project-title {
+            color: #808080;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #1f1f1f;
+            color: #808080;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .nav-content {
+                padding: 0 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">YG</div>
+            <div class="nav-links">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yessinguetat@gmail.com" target="_blank">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>YESSIN GUETAT</h1>
+                    <div class="cta-buttons">
+                        <a href="https://github.com/YESSINGUETAT" target="_blank" class="btn-primary">Mon profil GitHub</a>
+                        <a href="#projects" class="btn-secondary">Voir mes projets</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <div class="profile-glow"></div>
+                        <img src="https://avatars.githubusercontent.com/u/168131057?v=4" alt="YESSIN GUETAT" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Projets</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Stars</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Engagement</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Disponible</span>
+            </div>
+        </div>
+
+        <section id="projects">
+            <h2 class="section-title">Projets Récents</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="window.open('https://github.com/YESSINGUETAT/Crudapp-Laravel', '_blank')">
+                    <div class="project-icon">⚡</div>
+                    <h3 class="project-title">CRUD App Laravel</h3>
+                    <p class="project-desc">Application CRUD complète développée avec Laravel pour pratiquer les API RESTful. Implémentation des opérations Create, Read, Update, Delete avec une architecture propre et conforme aux bonnes pratiques.</p>
+                    <div class="project-footer">
+                        <div class="tech-stack">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Blade</span>
+                            <span class="tech-tag">API REST</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.open('https://github.com/momentum-intern/weather', '_blank')">
+                    <div class="collab-badge">
+                        👥 Projet Collaboratif
+                    </div>
+                    <div class="project-icon">🌦️</div>
+                    <h3 class="project-title">Momentum Weather</h3>
+                    <p class="project-desc">Application météorologique collaborative développée en équipe. Projet professionnel intégrant des API météo en temps réel avec une interface moderne et responsive.</p>
+                    <div class="project-footer">
+                        <div class="tech-stack">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Team Work</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.open('https://github.com/YESSINGUETAT/gaming-site-web', '_blank')">
+                    <div class="project-icon">🎮</div>
+                    <h3 class="project-title">Gaming Site Web</h3>
+                    <p class="project-desc">Plateforme web interactive dédiée au gaming avec une interface utilisateur moderne et des fonctionnalités avancées pour une expérience utilisateur optimale.</p>
+                    <div class="project-footer">
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-stars">⭐ 1</div>
+                    </div>
+                </div>
+
+                <div class="project-card coming-soon">
+                    <div class="project-icon">🚀</div>
+                    <h3 class="project-title">Projets à venir</h3>
+                    <p class="project-desc">Nouveaux projets innovants en cours de développement. Applications web modernes avec les dernières technologies du marché.</p>
+                    <div class="project-footer">
+                        <div class="tech-stack">
+                            <span class="tech-tag">En développement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <p style="font-size: 1.1em; margin-bottom: 10px; color: #a0a0a0;">YESSIN GUETAT - Développeur Web</p>
+            <p>© 2025 Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>
