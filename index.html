@@ -1,32 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio GitHub - YESSIN GUETAT</title>
+    <title>Portfolio•YESSIN GUETAT</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/7867/7867852.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg-main: #090b11;
+            --bg-card: rgba(16, 22, 34, 0.75);
+            --bg-card-hover: rgba(22, 30, 46, 0.9);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
+
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --cyan: #06b6d4;
+            --cyan-light: #38bdf8;
+            --emerald: #10b981;
+
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-main);
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15), transparent 50%),
+                radial-gradient(circle at 100% 25%, rgba(6, 182, 212, 0.08), transparent 40%),
+                radial-gradient(circle at 0% 75%, rgba(99, 102, 241, 0.07), transparent 45%);
+            background-attachment: fixed;
+            color: var(--text-primary);
             min-height: 100vh;
             padding: 0;
+            overflow-x: hidden;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ambient subtle grid pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .navbar {
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #1f1f1f;
-            padding: 20px 0;
+            background: rgba(9, 11, 17, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-card);
+            padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: all 0.3s;
         }
 
         .nav-content {
@@ -38,54 +92,151 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5em;
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1em;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+        }
+
+        .logo-text {
+            font-size: 1.15em;
             font-weight: 700;
-            background: linear-gradient(135deg, #60a5fa, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 28px;
+            align-items: center;
         }
 
         .nav-links a {
-            color: #a0a0a0;
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95em;
+            transition: color 0.25s, transform 0.2s;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #3b82f6;
+            color: #fff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 3px;
+            gap: 3px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 0.78em;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn:hover {
+            color: #fff;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 70px 40px 100px;
+            position: relative;
+            z-index: 1;
         }
 
+        /* Hero Section */
         header {
-            margin-bottom: 80px;
+            margin-bottom: 75px;
         }
 
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.25fr 0.75fr;
             gap: 60px;
             align-items: center;
         }
 
+        .hero-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #34d399;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+        }
+
         .hero-content h1 {
-            font-size: 3.5em;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #a0a0a0);
+            font-size: 3.8em;
+            font-weight: 900;
+            line-height: 1.08;
+            margin-bottom: 18px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 70%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -93,49 +244,63 @@
 
         .hero-content .subtitle {
             font-size: 1.3em;
-            color: #a0a0a0;
-            margin-bottom: 30px;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
             line-height: 1.6;
+            max-width: 580px;
+            font-weight: 400;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            padding: 14px 32px;
-            background: #3b82f6;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
             color: #fff;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
-            transition: all 0.3s;
-            border: none;
+            font-size: 0.95em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
         }
 
         .btn-primary:hover {
-            background: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
         }
 
         .btn-secondary {
-            padding: 14px 32px;
-            background: transparent;
-            color: #e0e0e0;
+            padding: 14px 28px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e2e8f0;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
-            border: 2px solid #2f2f2f;
-            transition: all 0.3s;
+            font-size: 0.95em;
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-secondary:hover {
-            border-color: #3b82f6;
-            color: #3b82f6;
+            border-color: rgba(99, 102, 241, 0.5);
+            background: rgba(99, 102, 241, 0.08);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         .hero-image {
@@ -146,208 +311,391 @@
 
         .profile-container {
             position: relative;
+            padding: 6px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(6, 182, 212, 0.2), rgba(255, 255, 255, 0.05));
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
         }
 
         .profile-img {
-            width: 280px;
-            height: 280px;
+            width: 270px;
+            height: 270px;
             border-radius: 20px;
-            border: 3px solid #1f1f1f;
             object-fit: cover;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: block;
+            background: #111;
         }
 
         .profile-glow {
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            filter: blur(40px);
-            opacity: 0.3;
+            top: 0;
+            left: 0;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            filter: blur(35px);
+            opacity: 0.25;
             z-index: -1;
-            animation: pulse 3s ease-in-out infinite;
+            animation: pulseGlow 4s ease-in-out infinite;
         }
 
+        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin: 60px 0;
-            padding: 40px;
-            background: #0f0f0f;
-            border-radius: 16px;
-            border: 1px solid #1f1f1f;
+            gap: 20px;
+            margin: 60px 0 80px;
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4);
         }
 
         .stat-item {
             text-align: center;
-            padding: 20px;
+            padding: 15px 10px;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 25%;
+            height: 50%;
+            width: 1px;
+            background: var(--border-card);
         }
 
         .stat-number {
             font-size: 2.5em;
             font-weight: 800;
-            color: #3b82f6;
+            background: linear-gradient(135deg, #fff 40%, var(--cyan-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
+            letter-spacing: -1px;
         }
 
         .stat-label {
-            color: #808080;
-            font-size: 0.95em;
-            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.88em;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
+        }
+
+        /* Section Headings */
+        .section-header-wrap {
+            margin-bottom: 35px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--cyan);
+            margin-bottom: 8px;
         }
 
         .section-title {
-            font-size: 2.2em;
-            font-weight: 700;
-            margin-bottom: 40px;
+            font-size: 2.3em;
+            font-weight: 800;
+            margin-bottom: 12px;
             color: #fff;
+            letter-spacing: -0.8px;
         }
 
-        .projects-grid {
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.05em;
+            max-width: 680px;
+            line-height: 1.65;
+        }
+
+        /* Grid & Cards */
+        .projects-grid,
+        .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 28px;
+            margin-top: 30px;
         }
 
-        .project-card {
-            background: #0f0f0f;
-            border: 1px solid #1f1f1f;
-            border-radius: 16px;
-            padding: 35px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .project-card,
+        .course-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 34px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
-        .project-card::before {
+        .project-card::before,
+        .course-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
             transform: scaleX(0);
-            transition: transform 0.3s;
+            transform-origin: left;
+            transition: transform 0.35s ease;
         }
 
-        .project-card:hover::before {
+        .project-card:hover::before,
+        .course-card:hover::before {
             transform: scaleX(1);
         }
 
-        .project-card:hover {
-            border-color: #3b82f6;
+        .project-card:hover,
+        .course-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 45px -15px rgba(99, 102, 241, 0.22);
         }
 
-        .project-header {
+        .card-top-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 20px;
         }
 
-        .project-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .project-title {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 12px;
-        }
-
-        .project-desc {
-            color: #a0a0a0;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .project-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid #1f1f1f;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tech-tag {
-            padding: 6px 14px;
-            background: #1a1a1a;
-            border: 1px solid #2f2f2f;
-            border-radius: 6px;
-            font-size: 0.85em;
-            color: #a0a0a0;
-            font-weight: 500;
-        }
-
-        .project-stars {
-            color: #fbbf24;
-            font-weight: 600;
+        .card-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            font-size: 1.65em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .collab-badge {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 4px 12px;
-            background: linear-gradient(135deg, #8b5cf6, #6366f1);
-            border-radius: 20px;
-            font-size: 0.75em;
+            gap: 6px;
+            padding: 5px 14px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 30px;
+            font-size: 0.78em;
             font-weight: 600;
+            color: #c4b5fd;
+            width: fit-content;
+        }
+
+        .course-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.78em;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-ongoing {
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .card-institution {
+            display: inline-block;
+            font-size: 0.83em;
+            color: var(--cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.38em;
+            font-weight: 700;
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
+            line-height: 1.35;
+            letter-spacing: -0.4px;
+        }
+
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.96em;
+            line-height: 1.68;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .course-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+
+        .course-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .tech-stack,
+        .course-skills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-card);
+            border-radius: 8px;
+            font-size: 0.82em;
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover .tech-tag,
+        .course-card:hover .tech-tag {
+            border-color: rgba(99, 102, 241, 0.25);
+            background: rgba(99, 102, 241, 0.08);
+            color: #e2e8f0;
+        }
+
+        .project-stars {
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 16px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 10px;
+            color: var(--cyan-light);
+            text-decoration: none;
+            font-size: 0.88em;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            margin-top: 4px;
+        }
+
+        .course-card:hover .card-action-btn {
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
         }
 
         .coming-soon {
-            border: 2px dashed #2f2f2f;
-            background: transparent;
+            border: 2px dashed rgba(255, 255, 255, 0.12);
+            background: rgba(16, 22, 34, 0.3);
         }
 
-        .coming-soon .project-title {
-            color: #808080;
+        .coming-soon .card-title {
+            color: var(--text-muted);
         }
 
+        /* Section Spacing */
+        .courses-section {
+            margin-top: 110px;
+            padding-top: 20px;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 100px;
-            padding: 40px;
+            margin-top: 110px;
+            padding: 45px 0 20px;
             text-align: center;
-            border-top: 1px solid #1f1f1f;
-            color: #808080;
+            border-top: 1px solid var(--border-card);
+            color: var(--text-muted);
+            font-size: 0.95em;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.5; }
+        footer p:first-child {
+            color: var(--text-secondary);
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.38;
+                transform: scale(1.04);
+            }
         }
 
         @media (max-width: 968px) {
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 40px;
             }
 
             .hero-content h1 {
-                font-size: 2.5em;
+                font-size: 2.8em;
+            }
+
+            .hero-content .subtitle {
+                margin: 0 auto 30px;
             }
 
             .cta-buttons {
@@ -356,9 +704,15 @@
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
 
-            .projects-grid {
+            .stat-item:nth-child(2)::after {
+                display: none;
+            }
+
+            .projects-grid,
+            .courses-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -369,7 +723,7 @@
 
         @media (max-width: 640px) {
             .container {
-                padding: 40px 20px;
+                padding: 40px 20px 60px;
             }
 
             .nav-content {
@@ -378,68 +732,117 @@
 
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 10px;
                 padding: 20px;
+            }
+
+            .stat-item::after {
+                display: none !important;
             }
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">YG</div>
-            <div class="nav-links">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yessinguetat@gmail.com" target="_blank">Contact</a>
+            <a href="#" class="logo-wrap">
+                <div class="logo-badge">YG</div>
+                <span class="logo-text">Yessin Guetat</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#projects" data-i18n="nav.projects">Projets</a>
+                    <a href="#courses" data-i18n="nav.courses">Formations & Certifications</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yessinguetat@gmail.com" target="_blank"
+                        data-i18n="nav.contact">Contact</a>
+                </div>
+                <div class="lang-switch" role="group" aria-label="Language selector">
+                    <button class="lang-btn active" id="btn-fr" onclick="setLanguage('fr')">FR</button>
+                    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="container">
+        <!-- Hero Header -->
         <header>
             <div class="hero">
                 <div class="hero-content">
-                    <h1>YESSIN GUETAT</h1>
+                    <div class="hero-badge-pill" data-i18n="hero.badge">
+                        🟢 Disponible pour opportunités & projets
+                    </div>
+                    <h1 data-i18n="hero.name">YESSIN GUETAT</h1>
+                    <p class="subtitle" data-i18n="hero.subtitle">Développeur Full-Stack & Spécialiste Sécurité Web</p>
                     <div class="cta-buttons">
-                        <a href="https://github.com/YESSINGUETAT" target="_blank" class="btn-primary">Mon profil GitHub</a>
-                        <a href="#projects" class="btn-secondary">Voir mes projets</a>
+                        <a href="https://github.com/YESSINGUETAT" target="_blank" class="btn-primary"
+                            data-i18n="hero.cta_github">
+                            Mon profil GitHub
+                        </a>
+                        <a href="#projects" class="btn-secondary" data-i18n="hero.cta_projects">
+                            Explorer mes projets
+                        </a>
+                        <a href="#courses" class="btn-secondary" data-i18n="hero.cta_courses">
+                            Formations & Certifications
+                        </a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="profile-container">
                         <div class="profile-glow"></div>
-                        <img src="https://avatars.githubusercontent.com/u/168131057?v=4" alt="YESSIN GUETAT" class="profile-img">
+                        <img src="https://avatars.githubusercontent.com/u/168131057?v=4" alt="YESSIN GUETAT"
+                            class="profile-img">
                     </div>
                 </div>
             </div>
         </header>
 
+        <!-- Stats Grid -->
         <div class="stats-grid">
             <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label">Projets</span>
+                <span class="stat-number" data-i18n="stats.projects_count">4+</span>
+                <span class="stat-label" data-i18n="stats.projects_label">Projets Développés</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">1</span>
-                <span class="stat-label">Stars</span>
+                <span class="stat-number" data-i18n="stats.courses_count">3</span>
+                <span class="stat-label" data-i18n="stats.courses_label">Certifications Clés</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Engagement</span>
+                <span class="stat-number" data-i18n="stats.engagement_count">100%</span>
+                <span class="stat-label" data-i18n="stats.engagement_label">Engagement & Rigueur</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">Disponible</span>
+                <span class="stat-number" data-i18n="stats.availability_count">24/7</span>
+                <span class="stat-label" data-i18n="stats.availability_label">Disponibilité</span>
             </div>
         </div>
 
+        <!-- Section Projets -->
         <section id="projects">
-            <h2 class="section-title">Projets Récents</h2>
+            <div class="section-header-wrap">
+                <span class="section-tag">PORTFOLIO</span>
+                <h2 class="section-title" data-i18n="projects_section.title">Projets Récents</h2>
+                <p class="section-desc" data-i18n="projects_section.subtitle">Sélection de réalisations techniques
+                    combinant architecture logicielle moderne, développement full-stack et sécurité offensive/défensive.
+                </p>
+            </div>
+
             <div class="projects-grid">
-                <div class="project-card" onclick="window.open('https://github.com/YESSINGUETAT/Crudapp-Laravel', '_blank')">
-                    <div class="project-icon">⚡</div>
-                    <h3 class="project-title">CRUD App Laravel</h3>
-                    <p class="project-desc">Application CRUD complète développée avec Laravel pour pratiquer les API RESTful. Implémentation des opérations Create, Read, Update, Delete avec une architecture propre et conforme aux bonnes pratiques.</p>
-                    <div class="project-footer">
+                <!-- Project 1: CRUD App Laravel -->
+                <div class="project-card"
+                    onclick="window.open('https://github.com/YESSINGUETAT/Crudapp-Laravel', '_blank')">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">⚡</div>
+                        </div>
+                        <h3 class="card-title" data-i18n="projects_section.project_crud_title">CRUD App Laravel</h3>
+                        <p class="card-desc" data-i18n="projects_section.project_crud_desc">Application CRUD complète
+                            développée avec Laravel pour maîtriser les API RESTful. Implémentation complète des
+                            opérations Create, Read, Update, Delete avec une architecture MVC rigoureuse et sécurisée.
+                        </p>
+                    </div>
+                    <div class="card-footer">
                         <div class="tech-stack">
                             <span class="tech-tag">Laravel</span>
                             <span class="tech-tag">PHP</span>
@@ -449,88 +852,409 @@
                     </div>
                 </div>
 
+                <!-- Project 2: Momentum Weather -->
                 <div class="project-card" onclick="window.open('https://github.com/momentum-intern/weather', '_blank')">
-                    <div class="collab-badge">
-                        👥 Projet Collaboratif
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">🌦️</div>
+                            <div class="collab-badge" data-i18n="projects_section.collab_badge">
+                                👥 Projet Collaboratif
+                            </div>
+                        </div>
+                        <h3 class="card-title" data-i18n="projects_section.project_weather_title">Momentum Weather</h3>
+                        <p class="card-desc" data-i18n="projects_section.project_weather_desc">Application
+                            météorologique collaborative développée en méthodologie agile. Intégration d'API météo temps
+                            réel avec interface responsive moderne et fluide.</p>
                     </div>
-                    <div class="project-icon">🌦️</div>
-                    <h3 class="project-title">Momentum Weather</h3>
-                    <p class="project-desc">Application météorologique collaborative développée en équipe. Projet professionnel intégrant des API météo en temps réel avec une interface moderne et responsive.</p>
-                    <div class="project-footer">
+                    <div class="card-footer">
                         <div class="tech-stack">
                             <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">API</span>
-                            <span class="tech-tag">Team Work</span>
+                            <span class="tech-tag">Weather API</span>
+                            <span class="tech-tag">Agile Team</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://github.com/YESSINGUETAT/gaming-site-web', '_blank')">
-                    <div class="project-icon">🎮</div>
-                    <h3 class="project-title">Gaming Site Web</h3>
-                    <p class="project-desc">Plateforme web interactive dédiée au gaming avec une interface utilisateur moderne et des fonctionnalités avancées pour une expérience utilisateur optimale.</p>
-                    <div class="project-footer">
+                <!-- Project 3: Gaming Site Web -->
+                <div class="project-card"
+                    onclick="window.open('https://github.com/YESSINGUETAT/gaming-site-web', '_blank')">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">🎮</div>
+                            <div class="project-stars">⭐ 1</div>
+                        </div>
+                        <h3 class="card-title" data-i18n="projects_section.project_gaming_title">Gaming Site Web</h3>
+                        <p class="card-desc" data-i18n="projects_section.project_gaming_desc">Plateforme web interactive
+                            dédiée à l'univers gaming avec interface utilisateur dynamique, animations fluides et
+                            expérience interactive optimisée.</p>
+                    </div>
+                    <div class="card-footer">
                         <div class="tech-stack">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">JavaScript ES6</span>
                         </div>
-                        <div class="project-stars">⭐ 1</div>
                     </div>
                 </div>
-                <div class="project-card" onclick="window.open('https://github.com/YOUR_USERNAME', '_blank')">
-    <div class="project-icon">🛡️</div>
-    <h3 class="project-title">CyberShield JavaScript Security Agent</h3>
 
-    <p class="project-desc">
-        Developed a security agent for modern JavaScript frameworks (React, Vue.js,
-        Angular, and Next.js) that acts as middleware between web applications and
-        the CyberShield platform. The agent intercepts HTTP requests, analyzes them
-        in real time, communicates with the CyberShield engine, applies security
-        decisions, and collects telemetry data for monitoring and threat detection.
-        It also integrates advanced CyberShield protection modules including Rate
-        Limiting, Data Size Limit, Security Headers, and server telemetry to protect
-        applications against XSS, SQL Injection, API abuse, DoS attacks, and other
-        OWASP Top 10 vulnerabilities.
-    </p>
-
-    <div class="project-footer">
-        <div class="tech-stack">
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">Express.js</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Vue.js</span>
-            <span class="tech-tag">Angular</span>
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">REST API</span>
-            <span class="tech-tag">Rate Limiter</span>
-            <span class="tech-tag">Data Size Limit</span>
-            <span class="tech-tag">Security Headers</span>
-            <span class="tech-tag">Telemetry</span>
-            <span class="tech-tag">OWASP</span>
-        </div>
-    </div>
-</div>
-
-                <div class="project-card coming-soon">
-                    <div class="project-icon">🚀</div>
-                    <h3 class="project-title">Projets à venir</h3>
-                    <p class="project-desc">Nouveaux projets innovants en cours de développement. Applications web modernes avec les dernières technologies du marché.</p>
-                    <div class="project-footer">
+                <!-- Project 4: CyberShield JavaScript Security Agent -->
+                <div class="project-card" onclick="window.open('https://github.com/YESSINGUETAT', '_blank')">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">🛡️</div>
+                        </div>
+                        <h3 class="card-title" data-i18n="projects_section.project_cybershield_title">CyberShield
+                            JavaScript Security Agent</h3>
+                        <p class="card-desc" data-i18n="projects_section.project_cybershield_desc">
+                            Middleware de sécurité pour frameworks JavaScript modernes (React, Vue.js, Angular,
+                            Next.js). Interception et filtrage des requêtes HTTP, télémétrie temps réel, rate limiting,
+                            en-têtes de sécurité et mitigation active des failles OWASP Top 10.
+                        </p>
+                    </div>
+                    <div class="card-footer">
                         <div class="tech-stack">
-                            <span class="tech-tag">En développement</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">OWASP Top 10</span>
+                            <span class="tech-tag">Telemetry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Coming Soon -->
+                <div class="project-card coming-soon">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">🚀</div>
+                        </div>
+                        <h3 class="card-title" data-i18n="projects_section.project_upcoming_title">Projets Innovants à
+                            Venir</h3>
+                        <p class="card-desc" data-i18n="projects_section.project_upcoming_desc">Nouvelles architectures
+                            cloud et applications web modernes en cours de conception avec les technologies les plus
+                            demandées du marché.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="tech-stack">
+                            <span class="tech-tag" data-i18n="projects_section.coming_soon_tag">En développement</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </section>
 
+        <!-- Section Formations & Certifications -->
+        <section id="courses" class="courses-section">
+            <div class="section-header-wrap">
+                <span class="section-tag">CERTIFICATIONS</span>
+                <h2 class="section-title" data-i18n="courses_section.title">Formations & Certifications Spécialisées
+                </h2>
+                <p class="section-desc" data-i18n="courses_section.subtitle">Parcours d'apprentissage intensif certifié
+                    sur Udemy ciblant la haute performance des bases de données, le DevOps cloud et la sécurité
+                    offensive.</p>
+            </div>
+
+            <div class="courses-grid">
+                <!-- Course 1: Redis The Complete Developer's Guide -->
+                <div class="course-card"
+                    onclick="window.open('https://www.udemy.com/course/redis-the-complete-developers-guide-p', '_blank')">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">⚡</div>
+                            <span class="course-status-badge status-completed"
+                                data-i18n="courses_section.status_completed">✓ Certifié / Complété</span>
+                        </div>
+                        <span class="card-institution" data-i18n="courses_section.course1_institution">Udemy • In-Memory
+                            & Caching</span>
+                        <h3 class="card-title" data-i18n="courses_section.course1_title">Redis: The Complete Developer's
+                            Guide</h3>
+                        <p class="card-desc" data-i18n="courses_section.course1_desc">Architecture et mise en œuvre de
+                            solutions de cache ultra-rapides, pipelines de données avec Redis Streams, structures
+                            in-memory avancées, systèmes Pub/Sub et réduction drastique de la latence backend.</p>
+                        <div class="course-meta">
+                            <span class="course-meta-item" data-i18n="courses_section.course1_meta1">⚡ In-Memory &
+                                Cache</span>
+                            <span class="course-meta-item" data-i18n="courses_section.course1_meta2">📡 Streams &
+                                Pub/Sub</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="course-skills">
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Caching</span>
+                            <span class="tech-tag">Redis Streams</span>
+                            <span class="tech-tag">Pub/Sub</span>
+                            <span class="tech-tag">Latency Tuning</span>
+                        </div>
+                        <a href="https://www.udemy.com/course/redis-the-complete-developers-guide-p" target="_blank"
+                            class="card-action-btn" data-i18n="courses_section.view_course_btn"
+                            onclick="event.stopPropagation();">
+                            Consulter sur Udemy ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 2: Docker & Kubernetes: The Practical Guide -->
+                <div class="course-card"
+                    onclick="window.open('https://www.udemy.com/course/docker-kubernetes-the-practical-guide', '_blank')">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">🐳</div>
+                            <span class="course-status-badge status-completed"
+                                data-i18n="courses_section.status_completed">✓ Certifié / Complété</span>
+                        </div>
+                        <span class="card-institution" data-i18n="courses_section.course2_institution">Udemy • DevOps &
+                            Cloud Architecture</span>
+                        <h3 class="card-title" data-i18n="courses_section.course2_title">Docker & Kubernetes: The
+                            Practical Guide</h3>
+                        <p class="card-desc" data-i18n="courses_section.course2_desc">Maîtrise avancée de la
+                            conteneurisation et orchestration : création d'images optimisées, environnements
+                            multi-services Docker Compose, gestion de clusters Kubernetes et déploiement scalable.</p>
+                        <div class="course-meta">
+                            <span class="course-meta-item" data-i18n="courses_section.course2_meta1">🐳 Docker &
+                                Conteneurs</span>
+                            <span class="course-meta-item" data-i18n="courses_section.course2_meta2">☸️ Orchestration
+                                K8s</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="course-skills">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Docker Compose</span>
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                        <a href="https://www.udemy.com/course/docker-kubernetes-the-practical-guide" target="_blank"
+                            class="card-action-btn" data-i18n="courses_section.view_course_btn"
+                            onclick="event.stopPropagation();">
+                            Consulter sur Udemy ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 3: Learn Bug Bounty Hunting & Web Security Testing -->
+                <div class="course-card"
+                    onclick="window.open('https://www.udemy.com/course/learn-bug-bounty-hunting-web-security-testing-from-scratch', '_blank')">
+                    <div>
+                        <div class="card-top-row">
+                            <div class="card-icon-box">🛡️</div>
+                            <span class="course-status-badge status-completed"
+                                data-i18n="courses_section.status_completed">✓ Certifié / Complété</span>
+                        </div>
+                        <span class="card-institution" data-i18n="courses_section.course3_institution">Udemy •
+                            Cybersécurité & Ethical Hacking</span>
+                        <h3 class="card-title" data-i18n="courses_section.course3_title">Learn Bug Bounty Hunting & Web
+                            Security Testing From Scratch</h3>
+                        <p class="card-desc" data-i18n="courses_section.course3_desc">Audit de vulnérabilités web et
+                            tests d'intrusion professionnels : exploitation éthique et sécurisation contre les failles
+                            OWASP Top 10 (XSS, SQLi, CSRF, IDOR, SSRF), maîtrise de Burp Suite et méthodologies Bug
+                            Bounty.</p>
+                        <div class="course-meta">
+                            <span class="course-meta-item" data-i18n="courses_section.course3_meta1">🎯 Bug Bounty &
+                                Pentest</span>
+                            <span class="course-meta-item" data-i18n="courses_section.course3_meta2">🛡️ OWASP Top
+                                10</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="course-skills">
+                            <span class="tech-tag">Bug Bounty</span>
+                            <span class="tech-tag">Burp Suite</span>
+                            <span class="tech-tag">OWASP Top 10</span>
+                            <span class="tech-tag">Web Pentesting</span>
+                            <span class="tech-tag">Ethical Hacking</span>
+                        </div>
+                        <a href="https://www.udemy.com/course/learn-bug-bounty-hunting-web-security-testing-from-scratch"
+                            target="_blank" class="card-action-btn" data-i18n="courses_section.view_course_btn"
+                            onclick="event.stopPropagation();">
+                            Consulter sur Udemy ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
         <footer id="contact">
-            <p style="font-size: 1.1em; margin-bottom: 10px; color: #a0a0a0;">YESSIN GUETAT - Développeur Web</p>
-            <p>© 2025 Tous droits réservés</p>
+            <p data-i18n="footer.role">YESSIN GUETAT • Développeur Web & Passionné de Sécurité Informatique</p>
+            <p data-i18n="footer.copyright">© 2025 Yessin Guetat. Conçu avec des technologies web modernes.</p>
         </footer>
     </div>
+
+    <!-- Internationalization (i18n) Engine -->
+    <script>
+        const translations = {
+            "fr": {
+                "nav": {
+                    "projects": "Projets",
+                    "courses": "Formations & Certifications",
+                    "contact": "Contact"
+                },
+                "hero": {
+                    "badge": "🟢 Disponible pour opportunités & projets",
+                    "name": "YESSIN GUETAT",
+                    "subtitle": "Développeur Full-Stack & Spécialiste Sécurité Web",
+                    "cta_github": "Mon profil GitHub",
+                    "cta_projects": "Explorer mes projets",
+                    "cta_courses": "Formations & Certifications"
+                },
+                "stats": {
+                    "projects_count": "4+",
+                    "projects_label": "Projets Développés",
+                    "courses_count": "3",
+                    "courses_label": "Certifications Clés",
+                    "engagement_count": "100%",
+                    "engagement_label": "Engagement & Rigueur",
+                    "availability_count": "24/7",
+                    "availability_label": "Disponibilité"
+                },
+                "projects_section": {
+                    "title": "Projets Récents",
+                    "subtitle": "Sélection de réalisations techniques combinant architecture logicielle moderne, développement full-stack et sécurité offensive/défensive.",
+                    "collab_badge": "👥 Projet Collaboratif",
+                    "coming_soon_tag": "En développement",
+                    "project_crud_title": "CRUD App Laravel",
+                    "project_crud_desc": "Application CRUD complète développée avec Laravel pour maîtriser les API RESTful. Implémentation complète des opérations Create, Read, Update, Delete avec une architecture MVC rigoureuse et sécurisée.",
+                    "project_weather_title": "Momentum Weather",
+                    "project_weather_desc": "Application météorologique collaborative développée en méthodologie agile. Intégration d'API météo temps réel avec interface responsive moderne et fluide.",
+                    "project_gaming_title": "Gaming Site Web",
+                    "project_gaming_desc": "Plateforme web interactive dédiée à l'univers gaming avec interface utilisateur dynamique, animations fluides et expérience interactive optimisée.",
+                    "project_cybershield_title": "CyberShield JavaScript Security Agent",
+                    "project_cybershield_desc": "Middleware de sécurité pour frameworks JavaScript modernes (React, Vue.js, Angular, Next.js). Interception et filtrage des requêtes HTTP, télémétrie temps réel, rate limiting, en-têtes de sécurité et mitigation active des failles OWASP Top 10.",
+                    "project_upcoming_title": "Projets Innovants à Venir",
+                    "project_upcoming_desc": "Nouvelles architectures cloud et applications web modernes en cours de conception avec les technologies les plus demandées du marché."
+                },
+                "courses_section": {
+                    "title": "Formations & Certifications Spécialisées",
+                    "subtitle": "Parcours d'apprentissage intensif certifié sur Udemy ciblant la haute performance des bases de données, le DevOps cloud et la sécurité offensive.",
+                    "status_completed": "✓ Certifié / Complété",
+                    "status_ongoing": "⏳ En Cours",
+                    "view_course_btn": "Consulter sur Udemy ↗",
+                    "course1_institution": "Udemy • In-Memory & Caching",
+                    "course1_title": "Redis: The Complete Developer's Guide",
+                    "course1_desc": "Architecture et mise en œuvre de solutions de cache ultra-rapides, pipelines de données avec Redis Streams, structures in-memory avancées, systèmes Pub/Sub et réduction drastique de la latence backend.",
+                    "course1_meta1": "⚡ In-Memory & Cache",
+                    "course1_meta2": "📡 Streams & Pub/Sub",
+                    "course2_institution": "Udemy • DevOps & Cloud Architecture",
+                    "course2_title": "Docker & Kubernetes: The Practical Guide",
+                    "course2_desc": "Maîtrise avancée de la conteneurisation et orchestration : création d'images optimisées, environnements multi-services Docker Compose, gestion de clusters Kubernetes et déploiement scalable.",
+                    "course2_meta1": "🐳 Docker & Conteneurs",
+                    "course2_meta2": "☸️ Orchestration K8s",
+                    "course3_institution": "Udemy • Cybersécurité & Ethical Hacking",
+                    "course3_title": "Learn Bug Bounty Hunting & Web Security Testing From Scratch",
+                    "course3_desc": "Audit de vulnérabilités web et tests d'intrusion professionnels : exploitation éthique et sécurisation contre les failles OWASP Top 10 (XSS, SQLi, CSRF, IDOR, SSRF), maîtrise de Burp Suite et méthodologies Bug Bounty.",
+                    "course3_meta1": "🎯 Bug Bounty & Pentest",
+                    "course3_meta2": "🛡️ OWASP Top 10"
+                },
+                "footer": {
+                    "role": "YESSIN GUETAT • Développeur Web & Passionné de Sécurité Informatique",
+                    "copyright": "© 2025 Yessin Guetat. Conçu avec des technologies web modernes."
+                }
+            },
+            "en": {
+                "nav": {
+                    "projects": "Projects",
+                    "courses": "Courses & Certifications",
+                    "contact": "Contact"
+                },
+                "hero": {
+                    "badge": "🟢 Available for new opportunities & projects",
+                    "name": "YESSIN GUETAT",
+                    "subtitle": "Full-Stack Developer & Web Security Specialist",
+                    "cta_github": "My GitHub Profile",
+                    "cta_projects": "Explore My Projects",
+                    "cta_courses": "Courses & Certifications"
+                },
+                "stats": {
+                    "projects_count": "4+",
+                    "projects_label": "Shipped Projects",
+                    "courses_count": "3",
+                    "courses_label": "Core Certifications",
+                    "engagement_count": "100%",
+                    "engagement_label": "Dedication & Quality",
+                    "availability_count": "24/7",
+                    "availability_label": "Availability"
+                },
+                "projects_section": {
+                    "title": "Featured Projects",
+                    "subtitle": "A curated showcase of engineering work spanning scalable software architecture, full-stack development, and application security.",
+                    "collab_badge": "👥 Collaborative Project",
+                    "coming_soon_tag": "In Development",
+                    "project_crud_title": "Laravel CRUD Application",
+                    "project_crud_desc": "Full-featured CRUD application engineered with Laravel to master RESTful API patterns. Clean MVC implementation, validation rules, authentication, and secure database interactions.",
+                    "project_weather_title": "Momentum Weather",
+                    "project_weather_desc": "Agile team collaborative weather web app. Consumes live meteorological APIs with interactive components, optimal caching, and smooth responsive design.",
+                    "project_gaming_title": "Gaming Web Platform",
+                    "project_gaming_desc": "Interactive web platform tailored for gamers with sleek UI elements, smooth micro-interactions, and high-performance frontend architecture.",
+                    "project_cybershield_title": "CyberShield JavaScript Security Agent",
+                    "project_cybershield_desc": "Security middleware for modern JavaScript ecosystems (React, Vue.js, Angular, Next.js). Inspects HTTP streams in real-time, collects telemetry, applies rate limiting, enforces strict security headers, and mitigates OWASP Top 10 threats.",
+                    "project_upcoming_title": "Upcoming Innovative Projects",
+                    "project_upcoming_desc": "Modern cloud-native web applications currently in architectural design and active development using cutting-edge industry frameworks."
+                },
+                "courses_section": {
+                    "title": "Specialized Courses & Certifications",
+                    "subtitle": "Hands-on technical certifications completed on Udemy focusing on high-throughput database systems, cloud DevOps, and offensive application security.",
+                    "status_completed": "✓ Certified / Completed",
+                    "status_ongoing": "⏳ In Progress",
+                    "view_course_btn": "View on Udemy ↗",
+                    "course1_institution": "Udemy • In-Memory & Caching",
+                    "course1_title": "Redis: The Complete Developer's Guide",
+                    "course1_desc": "Design and deployment of ultra-low latency caching, data streaming with Redis Streams, advanced in-memory structures, Pub/Sub messaging, and backend performance tuning.",
+                    "course1_meta1": "⚡ In-Memory & Cache",
+                    "course1_meta2": "📡 Streams & Pub/Sub",
+                    "course2_institution": "Udemy • DevOps & Cloud Architecture",
+                    "course2_title": "Docker & Kubernetes: The Practical Guide",
+                    "course2_desc": "In-depth mastery of containerization and orchestration: building production container images, Docker Compose multi-service setups, Kubernetes cluster management, and automated scaling.",
+                    "course2_meta1": "🐳 Docker & Containers",
+                    "course2_meta2": "☸️ K8s Orchestration",
+                    "course3_institution": "Udemy • Cybersecurity & Ethical Hacking",
+                    "course3_title": "Learn Bug Bounty Hunting & Web Security Testing From Scratch",
+                    "course3_desc": "Web application security auditing and ethical penetration testing: discovering and mitigating OWASP Top 10 vulnerabilities (XSS, SQLi, CSRF, IDOR, SSRF), Burp Suite workflows, and Bug Bounty strategies.",
+                    "course3_meta1": "🎯 Bug Bounty & Pentest",
+                    "course3_meta2": "🛡️ OWASP Top 10"
+                },
+                "footer": {
+                    "role": "YESSIN GUETAT • Web Developer & Cybersecurity Enthusiast",
+                    "copyright": "© 2025 Yessin Guetat. Built with modern web standards."
+                }
+            }
+        };
+
+        function getNestedValue(obj, keyPath) {
+            return keyPath.split('.').reduce((acc, part) => acc && acc[part], obj);
+        }
+
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+
+            document.documentElement.lang = lang;
+
+            document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const val = getNestedValue(translations[lang], key);
+                if (val !== undefined) {
+                    el.textContent = val;
+                }
+            });
+
+            try {
+                localStorage.setItem('portfolio_lang', lang);
+            } catch (e) { }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let savedLang = 'fr';
+            try {
+                savedLang = localStorage.getItem('portfolio_lang') || 'fr';
+            } catch (e) { }
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
+
 </html>

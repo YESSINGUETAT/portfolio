@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "courses": "Courses & Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "🟢 Available for new opportunities & projects",
+    "name": "YESSIN GUETAT",
+    "subtitle": "Full-Stack Developer & Web Security Specialist",
+    "cta_github": "My GitHub Profile",
+    "cta_projects": "Explore My Projects",
+    "cta_courses": "Courses & Certifications"
+  },
+  "stats": {
+    "projects_count": "4+",
+    "projects_label": "Shipped Projects",
+    "courses_count": "3",
+    "courses_label": "Core Certifications",
+    "engagement_count": "100%",
+    "engagement_label": "Dedication & Quality",
+    "availability_count": "24/7",
+    "availability_label": "Availability"
+  },
+  "projects_section": {
+    "title": "Featured Projects",
+    "subtitle": "A curated showcase of engineering work spanning scalable software architecture, full-stack development, and application security.",
+    "collab_badge": "👥 Collaborative Project",
+    "coming_soon_tag": "In Development",
+    "project_crud_title": "Laravel CRUD Application",
+    "project_crud_desc": "Full-featured CRUD application engineered with Laravel to master RESTful API patterns. Clean MVC implementation, validation rules, authentication, and secure database interactions.",
+    "project_weather_title": "Momentum Weather",
+    "project_weather_desc": "Agile team collaborative weather web app. Consumes live meteorological APIs with interactive components, optimal caching, and smooth responsive design.",
+    "project_gaming_title": "Gaming Web Platform",
+    "project_gaming_desc": "Interactive web platform tailored for gamers with sleek UI elements, smooth micro-interactions, and high-performance frontend architecture.",
+    "project_cybershield_title": "CyberShield JavaScript Security Agent",
+    "project_cybershield_desc": "Security middleware for modern JavaScript ecosystems (React, Vue.js, Angular, Next.js). Inspects HTTP streams in real-time, collects telemetry, applies rate limiting, enforces strict security headers, and mitigates OWASP Top 10 threats.",
+    "project_upcoming_title": "Upcoming Innovative Projects",
+    "project_upcoming_desc": "Modern cloud-native web applications currently in architectural design and active development using cutting-edge industry frameworks."
+  },
+  "courses_section": {
+    "title": "Specialized Courses & Certifications",
+    "subtitle": "Hands-on technical certifications completed on Udemy focusing on high-throughput database systems, cloud DevOps, and offensive application security.",
+    "status_completed": "✓ Certified / Completed",
+    "status_ongoing": "⏳ In Progress",
+    "view_course_btn": "View on Udemy ↗",
+    "course1_institution": "Udemy • In-Memory & Caching",
+    "course1_title": "Redis: The Complete Developer's Guide",
+    "course1_desc": "Design and deployment of ultra-low latency caching, data streaming with Redis Streams, advanced in-memory structures, Pub/Sub messaging, and backend performance tuning.",
+    "course1_meta1": "⚡ In-Memory & Cache",
+    "course1_meta2": "📡 Streams & Pub/Sub",
+    "course2_institution": "Udemy • DevOps & Cloud Architecture",
+    "course2_title": "Docker & Kubernetes: The Practical Guide",
+    "course2_desc": "In-depth mastery of containerization and orchestration: building production container images, Docker Compose multi-service setups, Kubernetes cluster management, and automated scaling.",
+    "course2_meta1": "🐳 Docker & Containers",
+    "course2_meta2": "☸️ K8s Orchestration",
+    "course3_institution": "Udemy • Cybersecurity & Ethical Hacking",
+    "course3_title": "Learn Bug Bounty Hunting & Web Security Testing From Scratch",
+    "course3_desc": "Web application security auditing and ethical penetration testing: discovering and mitigating OWASP Top 10 vulnerabilities (XSS, SQLi, CSRF, IDOR, SSRF), Burp Suite workflows, and Bug Bounty strategies.",
+    "course3_meta1": "🎯 Bug Bounty & Pentest",
+    "course3_meta2": "🛡️ OWASP Top 10"
+  },
+  "footer": {
+    "role": "YESSIN GUETAT • Web Developer & Cybersecurity Enthusiast",
+    "copyright": "© 2025 Yessin Guetat. Built with modern web standards."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "projects": "Projets",
+    "courses": "Formations & Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "🟢 Disponible pour opportunités & projets",
+    "name": "YESSIN GUETAT",
+    "subtitle": "Développeur Full-Stack & Spécialiste Sécurité Web",
+    "cta_github": "Mon profil GitHub",
+    "cta_projects": "Explorer mes projets",
+    "cta_courses": "Formations & Certifications"
+  },
+  "stats": {
+    "projects_count": "4+",
+    "projects_label": "Projets Développés",
+    "courses_count": "3",
+    "courses_label": "Certifications Clés",
+    "engagement_count": "100%",
+    "engagement_label": "Engagement & Rigueur",
+    "availability_count": "24/7",
+    "availability_label": "Disponibilité"
+  },
+  "projects_section": {
+    "title": "Projets Récents",
+    "subtitle": "Sélection de réalisations techniques combinant architecture logicielle moderne, développement full-stack et sécurité offensive/défensive.",
+    "collab_badge": "👥 Projet Collaboratif",
+    "coming_soon_tag": "En développement",
+    "project_crud_title": "CRUD App Laravel",
+    "project_crud_desc": "Application CRUD complète développée avec Laravel pour maîtriser les API RESTful. Implémentation complète des opérations Create, Read, Update, Delete avec une architecture MVC rigoureuse et sécurisée.",
+    "project_weather_title": "Momentum Weather",
+    "project_weather_desc": "Application météorologique collaborative développée en méthodologie agile. Intégration d'API météo temps réel avec interface responsive moderne et fluide.",
+    "project_gaming_title": "Gaming Site Web",
+    "project_gaming_desc": "Plateforme web interactive dédiée à l'univers gaming avec interface utilisateur dynamique, animations fluides et expérience interactive optimisée.",
+    "project_cybershield_title": "CyberShield JavaScript Security Agent",
+    "project_cybershield_desc": "Middleware de sécurité pour frameworks JavaScript modernes (React, Vue.js, Angular, Next.js). Interception et filtrage des requêtes HTTP, télémétrie temps réel, rate limiting, en-têtes de sécurité et mitigation active des failles OWASP Top 10.",
+    "project_upcoming_title": "Projets Innovants à Venir",
+    "project_upcoming_desc": "Nouvelles architectures cloud et applications web modernes en cours de conception avec les technologies les plus demandées du marché."
+  },
+  "courses_section": {
+    "title": "Formations & Certifications Spécialisées",
+    "subtitle": "Parcours d'apprentissage intensif certifié sur Udemy ciblant la haute performance des bases de données, le DevOps cloud et la sécurité offensive.",
+    "status_completed": "✓ Certifié / Complété",
+    "status_ongoing": "⏳ En Cours",
+    "view_course_btn": "Consulter sur Udemy ↗",
+    "course1_institution": "Udemy • In-Memory & Caching",
+    "course1_title": "Redis: The Complete Developer's Guide",
+    "course1_desc": "Architecture et mise en œuvre de solutions de cache ultra-rapides, pipelines de données avec Redis Streams, structures in-memory avancées, systèmes Pub/Sub et réduction drastique de la latence backend.",
+    "course1_meta1": "⚡ In-Memory & Cache",
+    "course1_meta2": "📡 Streams & Pub/Sub",
+    "course2_institution": "Udemy • DevOps & Cloud Architecture",
+    "course2_title": "Docker & Kubernetes: The Practical Guide",
+    "course2_desc": "Maîtrise avancée de la conteneurisation et orchestration : création d'images optimisées, environnements multi-services Docker Compose, gestion de clusters Kubernetes et déploiement scalable.",
+    "course2_meta1": "🐳 Docker & Conteneurs",
+    "course2_meta2": "☸️ Orchestration K8s",
+    "course3_institution": "Udemy • Cybersécurité & Ethical Hacking",
+    "course3_title": "Learn Bug Bounty Hunting & Web Security Testing From Scratch",
+    "course3_desc": "Audit de vulnérabilités web et tests d'intrusion professionnels : exploitation éthique et sécurisation contre les failles OWASP Top 10 (XSS, SQLi, CSRF, IDOR, SSRF), maîtrise de Burp Suite et méthodologies Bug Bounty.",
+    "course3_meta1": "🎯 Bug Bounty & Pentest",
+    "course3_meta2": "🛡️ OWASP Top 10"
+  },
+  "footer": {
+    "role": "YESSIN GUETAT • Développeur Web & Passionné de Sécurité Informatique",
+    "copyright": "© 2025 Yessin Guetat. Conçu avec des technologies web modernes."
+  }
+}
